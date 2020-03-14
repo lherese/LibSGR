@@ -1,0 +1,3 @@
+[submodule "Modules/libsg"]
+	path = Modules/libsg
+	url = git@github.com:lherese/libsg
