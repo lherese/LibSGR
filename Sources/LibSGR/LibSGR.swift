@@ -1,13 +1,21 @@
 import libsg
 
 func readFile(named name: String) {
+
   guard
-    let file = sg_read_file(name)
+    let file = SGFile(name)
   else {
     return print("Could not open file \(name)")
   }
 
-  print("File \(name) contains \(sg_get_file_bitmap_count(file)) bitmaps and \(sg_get_file_image_count(file)) images")
+  print("File \(name) contains \(file.bitmapCount) bitmaps and \(file.imageCount) images")
 
-  sg_delete_file(file)
+  let index: UInt32 = 0
+  guard
+    let image = file[image: 0]
+  else {
+    return print("Could not load image \(index)")
+  }
+
+  print("Image \(index) is \(image.width) by \(image.height) pixels")
 }
