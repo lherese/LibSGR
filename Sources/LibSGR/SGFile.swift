@@ -98,20 +98,20 @@ public class SGFile {
     sg_delete_file(file)
   }
 
-  var imageCount: UInt32 {
+  public var imageCount: UInt32 {
     sg_get_file_image_count(file)
   }
 
-  var bitmapCount: UInt32 {
+  public var bitmapCount: UInt32 {
     sg_get_file_bitmap_count(file)
   }
 
-  subscript(image n: UInt32) -> Image? {
+  public subscript(image n: UInt32) -> Image? {
     sg_get_file_image(file, n)
       .map { Image(file: self, $0) }
   }
 
-  subscript(bitmap n: UInt32) -> Bitmap? {
+  public subscript(bitmap n: UInt32) -> Bitmap? {
     sg_get_file_bitmap(file, n)
       .map { Bitmap(file: self, $0) }
   }
